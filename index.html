@@ -1,7 +1,53 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Hello World</h1>
-<p>My website on GitHub Pages. It works!</p>
+    <script language="javascript">
+
+        /*
+        Random image slideshow- By Tyler Clarke (tyler@ihatecoffee.com)
+        For this script and more, visit http://www.javascriptkit.com
+        */
+        
+        var delay=1000 //set delay in miliseconds
+        var curindex=0
+        
+        var randomimages=new Array()
+        
+            randomimages[0]="1.png"
+            randomimages[1]="5.png"
+            randomimages[2]="2.png"
+            randomimages[3]="4.png"
+            randomimages[4]="3.png"
+            randomimages[5]="6.png"
+        
+        var preload=new Array()
+        
+        for (n=0;n<randomimages.length;n++)
+        {
+            preload[n]=new Image()
+            preload[n].src=randomimages[n]
+        }
+        
+        document.write('<img name="defaultimage" src="'+randomimages[Math.floor(Math.random()*(randomimages.length))]+'">')
+        
+        function rotateimage()
+        {
+        
+        if (curindex==(tempindex=Math.floor(Math.random()*(randomimages.length)))){
+        curindex=curindex==0? 1 : curindex-1
+        }
+        else
+        curindex=tempindex
+        
+            document.images.defaultimage.src=randomimages[curindex]
+        }
+        
+        setInterval("rotateimage()",delay)
+        
+        </script>
+        
+        <p align="center">This free script provided by<br />
+        <a href="http://javascriptkit.com">JavaScript
+        Kit</a></p>
 </body>
 </html>
